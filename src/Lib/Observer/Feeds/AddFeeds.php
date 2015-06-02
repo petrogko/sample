@@ -19,18 +19,20 @@ class AddFeeds {
             $mediumId = isset($data['params']['medium']) ? $data['params']['medium'] : 1;
 
             foreach ($data['params'] as $d) {
-                $query->insert(['medium_id', 'title', 'author','created_on'])
-                    ->values([
-                        'medium_id' => $mediumId,
-                        'title' => $d->text,
-                        'author' => $d->user->name,
-                        'created_on' => 'now()'
-                    ]);
+                if(!empty($d->text) && !empty($d->user->name)) {
+                    $query->insert(['medium_id', 'title', 'author','created_on'])
+                        ->values([
+                            'medium_id' => $mediumId,
+                            'title' => $d->text,
+                            'author' => $d->user->name,
+                            'created_on' => 'now()'
+                        ]);
 
-                try {
-                    $query->execute();
-                }catch (Exception $e) {
-                    print_r($e->getMessage());
+                    try {
+                        $query->execute();
+                    }catch (Exception $e) {
+                        print_r($e->getMessage());
+                    }
                 }
             }
         }
