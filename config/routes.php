@@ -41,7 +41,7 @@ use Cake\Routing\Router;
  */
 Router::defaultRouteClass('Route');
 
-Router::connect('/', ['controller' => 'Default', 'action' => 'index']);
+Router::connect('/', ['controller' => 'Default', 'action' => 'index', 'home']);
 Router::connect('/pages', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
 Router::scope('/feeds', ['controller' => 'Article'], function($routes) {
@@ -50,6 +50,7 @@ Router::scope('/feeds', ['controller' => 'Article'], function($routes) {
     $routes->connect('/edit/*', ['action'=>'edit']);
     $routes->connect('/view/*', ['action'=>'view']);
     $routes->connect('/delete/*', ['action'=>'delete']);
+//    $routes->fallbacks('InflectedRoute');
 });
 
 Router::scope('/medium', ['controller' => 'Medium'], function($routes) {
@@ -60,7 +61,8 @@ Router::scope('/medium', ['controller' => 'Medium'], function($routes) {
     $routes->connect('/delete/*', ['action'=>'delete']);
 });
 
-//API's
+// RestFul API's
+// TODO - Implement
 Router::connect('/api/twitter/get', ['controller' => 'Twitter', 'action' => 'get']);
 Router::connect('/api/pintrest/get', ['controller' => 'Pintrest', 'action' => 'get']);
 

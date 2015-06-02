@@ -55,6 +55,8 @@ class DefaultController extends AppController
     }
 
     // TODO - optimize Observer
+    // TODO - add conditions for storage
+    // TODO - add cron to be responsible for cleaning some data
     public function addToRecords($data) {
         $observerParams = array(
             'table' => 'Article',

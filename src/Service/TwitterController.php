@@ -7,16 +7,33 @@
  */
 
 namespace App\Service;
-use Cake\Controller\Controller;
+//use Cake\Controller\Controller;
 
-class TwitterController extends ApiController {
+class Api_TwitterController extends ApiController {
 
     public function initialize() {
         parent::initialize();
-        $this->loadComponent('Flash');
     }
 
     public function get() {
+        $message = "";
+        $isSuccess = true;
+        $ar = array();
 
+        $data = (array) $this->getData();
+
+        $offset = 0;
+        if (isset($data['offset'])) {
+            $offset = $data['offset'];
+        }
+
+//        $ar = UserTable::getSinceDate($dt->format("Y-m-d H:i:s"), $limit, $offset);
+        $response = array(
+            "isSuccess" => $isSuccess,
+            "message" => $message,
+            "result" => $ar
+        );
+
+        return $this->sendData($response);
     }
 } 
