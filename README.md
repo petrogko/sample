@@ -1,8 +1,8 @@
 #CakePHP sample application
 
-/ -> to display tweets
-/feeds/ -> to display 'Admin' section to manage local tweet data
-/feeds/medium -> to display 'Admin' section to manage connections to different clients
+/ -> to display tweets \n
+/feeds/ -> to display 'Admin' section to manage local tweet data \n
+/feeds/medium -> to display 'Admin' section to manage connections to different clients \n
 
 1) Application grabs latest tweets from twitter to display to user
 2) Application will store information in order to provide to sample clients
