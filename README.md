@@ -12,3 +12,4 @@
 1) Optimizations <br>
 2) RestFul endpoints to grab local twitter data <br>
 3) Create Pintrest section <br>
+4) Create Registration and Login <br>
